@@ -8,7 +8,6 @@ public class NewTest
 { 
 	ArrayList<String> resultFromApi=new ArrayList<>();
 	ArrayList<String> resultFromUi=new ArrayList<>();
-
 	@BeforeTest
 	public void initializeBingAutomate() throws Exception
 	{
@@ -16,15 +15,16 @@ public class NewTest
 		resultFromUi=trans.automateBingMethod();
 		WebServices bing=new WebServices();
 		resultFromApi=bing.webServ();
-		
 	}
 		
 	@Test
-  public void testBing() 
+	public void testBing() 
 	{
-      for(int i=0;i<resultFromUi.size();i++){
-		Assert.assertEquals(resultFromUi.get(i), resultFromApi.get(i) , "Not match");
-		Reporter.log("Matched", true);
-      }
-  }
+      		for(int i=0;i<resultFromUi.size();i++)
+      		{
+			Assert.assertEquals(resultFromUi.get(i), resultFromApi.get(i) , "Not match");
+			Reporter.log("Matched", true);
+      		}
+		
+	}
 }
